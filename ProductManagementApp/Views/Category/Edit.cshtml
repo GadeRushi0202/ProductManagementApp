@@ -1,0 +1,58 @@
+﻿@model ProductManagementApp.Models.Category
+
+@{
+    ViewData["Title"] = "Edit Category";
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h2 class="text-primary fw-bold">Edit Category</h2>
+        <p class="text-muted">Update the details of this category</p>
+    </div>
+
+    <div class="card shadow-sm border-0 rounded-4 mx-auto" style="max-width: 500px;">
+        <div class="card-body p-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="CategoryId" class="form-label fw-medium"></label>
+                    <input asp-for="CategoryId" class="form-control" readonly />
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="CategoryName" class="form-label fw-medium"></label>
+                    <input asp-for="CategoryName" class="form-control" />
+                    <span asp-validation-for="CategoryName" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <input type="submit" value="Save" class="btn btn-primary btn-lg shadow-sm" />
+                    <a asp-action="Index" class="btn btn-secondary btn-lg shadow-sm">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+
+    .btn-primary:hover {
+        background-color: #0b5ed7;
+        border-color: #0a58ca;
+    }
+
+    .btn-secondary:hover {
+        background-color: #6c757d;
+        border-color: #5a6268;
+    }
+</style>

@@ -1,0 +1,63 @@
+﻿@model ProductManagementApp.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h2 class="text-primary fw-bold">Product Details</h2>
+        <p class="text-muted">View all information related to this product</p>
+    </div>
+
+    <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body p-4">
+            <h5 class="mb-3 fw-semibold">Product Information</h5>
+            <dl class="row">
+                <dt class="col-sm-3 text-secondary">Product Id:</dt>
+                <dd class="col-sm-9 fw-medium">@Model.ProductId</dd>
+
+                <dt class="col-sm-3 text-secondary">Product Name:</dt>
+                <dd class="col-sm-9 fw-medium">@Model.ProductName</dd>
+
+                <dt class="col-sm-3 text-secondary">Category Id:</dt>
+                <dd class="col-sm-9 fw-medium">@Model.CategoryId</dd>
+            </dl>
+
+            <!-- Action Buttons -->
+            <div class="mt-4 d-flex justify-content-center">
+                <a asp-action="Edit" asp-route-id="@Model.ProductId" class="btn btn-primary btn-lg me-3 shadow-sm">Edit</a>
+                <a asp-action="Index" class="btn btn-secondary btn-lg shadow-sm">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+
+    dl dt {
+        font-weight: 500;
+    }
+
+    dl dd {
+        margin-bottom: 1rem;
+    }
+
+    .btn-primary:hover {
+        background-color: #0b5ed7;
+        border-color: #0a58ca;
+    }
+
+    .btn-secondary:hover {
+        background-color: #6c757d;
+        border-color: #5a6268;
+    }
+</style>

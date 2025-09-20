@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ProductManagementApp.Models.Category>
+
+@{
+    ViewData["Title"] = "Category List";
+}
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-primary fw-bold">Category List</h2>
+        <a asp-action="Create" class="btn btn-success btn-lg shadow-sm">Create New</a>
+    </div>
+
+    <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body p-4">
+            <table class="table table-hover align-middle">
+                <thead class="table-dark">
+                    <tr class="text-center">
+                        <th>Category Id</th>
+                        <th>Category Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="text-center">
+                            <td>@item.CategoryId</td>
+                            <td class="text-start">@item.CategoryName</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.CategoryId" class="btn btn-sm btn-primary me-1">Edit</a>
+                                <a asp-action="Details" asp-route-id="@item.CategoryId" class="btn btn-sm btn-info me-1">Details</a>
+                                <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+
+    .btn-primary:hover {
+        background-color: #0b5ed7;
+        border-color: #0a58ca;
+    }
+
+    .btn-info:hover {
+        background-color: #17a2b8;
+        border-color: #138496;
+    }
+
+    .btn-danger:hover {
+        background-color: #dc3545;
+        border-color: #c82333;
+    }
+</style>
